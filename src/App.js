@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useRef } from "react";
+import "./App.css";
+import { Form } from "./components/Form";
+import { ImageContainer } from "./components/ImageContainer";
+import { exportComponentAsPNG } from "react-component-export-image";
 
 function App() {
+  const [val, setVal] = useState("");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className=" font-mono  flex flex-col justify-center items-center  h-screen bg-gradient-to-b from-yellow-100">
+      <p className="text-lg">SAY NO TO SUBSTANCE ABUSE!</p>
+      <p className="text-xs">to claim your unique stamp</p>
+
+      <div className="mt-8">
+        <Form setVal={setVal} />
+      </div>
+
+      {/* <h1>{val}</h1> */}
+      <div className="mt-8">
+        <ImageContainer name={val} />
+      </div>
     </div>
   );
 }
